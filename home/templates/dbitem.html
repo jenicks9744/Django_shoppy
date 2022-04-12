@@ -1,0 +1,17 @@
+{% extends 'landingpage.html' %}
+{% block content %}
+
+
+    {% for i in values %}
+    
+    <a href="/home/details/{{i.id}}">{{i.name}}</a> <br>
+    
+    <br>
+    {% endfor %}
+
+{% endblock %}
+
+
+    <!-- Price: {{i.price}}<br>
+    Description: {{i.desc}}<br>
+    Features: {{i.feature}}<br> -->

@@ -1,0 +1,13 @@
+{% extends 'landingpage.html' %}
+{% block content %}
+    <form action="/product/usrinfo" method="post" class="form-control">
+        {% csrf_token %}
+        Name <input type="text" name="na" placeholder="name" class="form-control"><br>
+        Email <input type="email" name="eml" placeholder="email" class="form-control"><br>
+        Password <input type="password" name="pass" placeholder="password" class="form-control"><br>
+        Phone <input type="number" name="ph" placeholder="Mobile number" class="form-control"><br>
+        <input type="submit">
+    </form>
+
+
+    {% endblock %}

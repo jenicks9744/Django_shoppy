@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body >
+    <h1>Hi,this is {{name}},{{nametwo}}</h1>
+    <h2>{{Category}}</h2>
+    <div>
+        
+        {%  for i in Product %}
+        <table border="1">
+        <br>
+        
+        {% for k,v in i.items %}
+            <tr>
+            <td>{{k}}</td>
+            <td>
+                {% if k == 'Features' %}
+                <ol>
+                    
+                {% for f in v %}
+                <li> {{f}} </li>
+                    
+                {% endfor %}
+                </ol>
+                {% else %}
+                {{v}} </td>
+                {% endif %}
+            
+            </tr>
+            
+            {% endfor %}
+            
+        {% endfor %}
+        </table>
+    </div>
+<!-- 
+    <form action="addnum" method="post" >
+        {% csrf_token %}
+        enter the first number:-<input type="text" name="numone"><br>
+        enter the Second number:-<input type="text" name="numtwo"><br>
+        <input type="submit"> -->
+    </form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'landingpage.html' %}
+{% block content %}
+
+
+    price:: {{pro.price}}<br>
+    Description:: {{pro.desc}}<br>
+    Feature:: {{pro.feature}}<br>
+
+    <form action="/home/tocart">
+        <input type="hidden" name="proid" value="{{pro.id}}">
+        Qty <input type="number" min='1' max='5' name="qty">
+        <input type="submit" value="Add to cart" >
+    </form>
+
+{% endblock %}
