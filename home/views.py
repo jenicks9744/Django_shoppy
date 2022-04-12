@@ -113,43 +113,26 @@ def viewCart(request):
     cartitems={}
     if (request.session.__contains__("cartdata")):
         for key in request.session.keys():
-            item = list(request.session[key].items())
-            print(item)
-    return HttpResponse("cart data")
+            itemss = list(request.session[key].items())
+            itemdb=[]
+            for i in range (len(itemss)):
+                prodid=itemss[i][0]
+                quantity=itemss[i][1]
+                db=item.objects.get(id=prodid)
+                itemdb.append({
+                    'ProductId':prodid,
+                    'Quantity':quantity,
+                    'Name':db.name,
+                    'price':db.price,
+                    'description':db.desc,
+                    'Feature':db.feature
+                })
+            data ={"myitems":itemdb}    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # response=page.render(cartitems,request)
-    # return HttpResponse(response)
-
-
+        response=page.render(data,request)
+        return HttpResponse(response)
+    else:
+        return HttpResponse("your cart is empty")
 
 
 

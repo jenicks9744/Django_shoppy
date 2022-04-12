@@ -3,8 +3,14 @@
 
 
 <h1>My Cart page </h1>
-{% for i in vals %}
-{{ i }}
+{% for i in myitems %}
+Product Id:: {{ i.ProductId }}<br>
+Quantity:: {{ i.Quantity }}<br>
+Product Name:: {{ i.Name }}<br>
+Product Price:: {{ i.price }}<br>
+Product Description:: {{i.description}}<br>
+Product Feature:: {{i.Feature}}<br>
+<br><br><br>
 {% endfor %}
 
 
