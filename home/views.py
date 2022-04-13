@@ -1,7 +1,7 @@
 from django.template import loader
 
 from urllib import response
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -128,15 +128,32 @@ def viewCart(request):
                     'Feature':db.feature,
                     'total':int(quantity)*int(db.price)     
                 })
-            data ={"myitems":itemdb}    
+        fullam=0 
+        for  i in itemdb :
+            for keys,values in i.items():
+                if (keys=='total'):
+                    fullam+=(values)
 
+        data ={"myitems":itemdb,"fullamount":fullam}  
         response=page.render(data,request)
         return HttpResponse(response)
     else:
         return HttpResponse("your cart is empty")
 
 
-
+def getdata(req):
+    newitem=[]
+    print(item.objects.all())
+    for i in item.objects.all():
+        newitem.append({
+            "Id":i.id,
+            "Name":i.name,
+            "Price":i.price,
+            "Description":i.desc,
+            "Features":i.feature
+        })
+    data={"jsondata":newitem}
+    return JsonResponse(data)
 
 
 

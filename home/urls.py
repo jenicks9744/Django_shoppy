@@ -11,5 +11,6 @@ urlpatterns = [
     path('details/<str:pid>',views.productdetaildisp),
     path('tocart',views.addtocart),
     path('viewcart',views.viewCart),
-    
+    path('getjson',views.getdata),
+
 ]
