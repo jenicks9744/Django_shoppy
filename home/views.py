@@ -125,7 +125,8 @@ def viewCart(request):
                     'Name':db.name,
                     'price':db.price,
                     'description':db.desc,
-                    'Feature':db.feature
+                    'Feature':db.feature,
+                    'total':int(quantity)*int(db.price)     
                 })
             data ={"myitems":itemdb}    
 
