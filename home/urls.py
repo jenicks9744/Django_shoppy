@@ -12,5 +12,6 @@ urlpatterns = [
     path('tocart',views.addtocart),
     path('viewcart',views.viewCart),
     path('getjson',views.getdata),
+    path('productsearch',views.productsearch),
 
 ]

@@ -156,4 +156,17 @@ def getdata(req):
     return JsonResponse(data)
 
 
+def productsearch(request):
+    datasample= loader.get_template('prodsearch.html')
+    data={}
+    response=datasample.render(data,request)
+    return HttpResponse(response)
+
+
+
+
+
+
+
+
 
